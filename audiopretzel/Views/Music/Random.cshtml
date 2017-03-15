@@ -1,0 +1,16 @@
+﻿@model audiopretzel.Models.Music
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> @Model.Artist      @Model.Genre        @Model.Name</h2>
+
+@*inside the audio tag the src must have 
+quotations and the @Model.Path inside it like : <source src="@Model.Path" type="audio/mpeg" />  *@
+<audio controls="controls">
+    <source src="@Model.Path" type="audio/mpeg" />
+</audio>
+
+
