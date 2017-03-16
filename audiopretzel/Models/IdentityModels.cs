@@ -17,9 +17,11 @@ namespace audiopretzel.Models
             return userIdentity;
         }
     }
-
+    //mosh changed identitymodels to applicationdbcontext in solution explorer
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //this allows entity framework to see the Music domain model
+        public DbSet<Music> Musics { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

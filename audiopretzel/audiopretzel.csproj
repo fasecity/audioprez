@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201703160311058_InitialModel.Designer.cs">
       <DependentUpon>201703160311058_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703160611004_AddDbsetMusic.cs" />
+    <Compile Include="Migrations\201703160611004_AddDbsetMusic.Designer.cs">
+      <DependentUpon>201703160611004_AddDbsetMusic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -199,6 +203,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\pexels-photo-30222.jpg" />
     <Content Include="images\pexels-photo-medium.jpg" />
+    <Content Include="images\playButton.svg" />
     <Content Include="images\taco-icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -271,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703160311058_InitialModel.resx">
       <DependentUpon>201703160311058_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703160611004_AddDbsetMusic.resx">
+      <DependentUpon>201703160611004_AddDbsetMusic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
