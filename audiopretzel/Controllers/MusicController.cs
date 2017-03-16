@@ -19,7 +19,7 @@ namespace audiopretzel.Controllers
 
             //the Path property inside Models.Path has to be exactly structured like : Path = "/Tunes/almost.mp3"
             //inorder to be passed into the view
-            var music = new Music() { Name = "almost",Artist = "fasecity", Genre = "electronic",Path = "/Tunes/almost.mp3" };
+            var music = new Music() { Name = "almost",Artist = "fasecity", Genre = "electronic",Path = "/Tunes/BASSFUNK2016.mp3" };
             
            
             return View(music);
