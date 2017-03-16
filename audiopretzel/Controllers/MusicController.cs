@@ -9,19 +9,25 @@ namespace audiopretzel.Controllers
 {
     public class MusicController : Controller
     {
+        
         // GET: Music/Random
         /// <summary>
         /// this method is going to eventually display a music table to client it uses Random view
         /// </summary>
         /// <returns></returns>
+        /// Authorize is made so evreyone has to log in
+        [Authorize]
         public ActionResult Random()
         {
-
+            //creating an instance of the database class
+            ApplicationDbContext _context = new ApplicationDbContext();
+            //making the variable into a list
+            var music = _context.Musics.ToList();
             //the Path property inside Models.Path has to be exactly structured like : Path = "/Tunes/almost.mp3"
             //inorder to be passed into the view
-            var music = new Music() { Name = "almost",Artist = "fasecity", Genre = "electronic",Path = "/Tunes/BASSFUNK2016.mp3" };
-            
            
+            
+           //returning the list
             return View(music);
             
         }

@@ -1,21 +1,15 @@
-﻿@model audiopretzel.Models.Music
-
+﻿@model IEnumerable<audiopretzel.Models.Music>
+@*model mus be made into IEnurable to display in list*@
 
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
-@*<h2> @Model.Artist      @Model.Genre        @Model.Name</h2>*@
-
-@*inside the audio tag the src must have 
-quotations and the @Model.Path inside it like : <source src="@Model.Path" type="audio/mpeg" />  *@
-@*<audio controls="controls">
-    <source src="@Model.Path" type="audio/mpeg" pre-load="none"/>
-</audio>*@
 
 <h2>Play music</h2>
-@*table for music*@
+
 <table class="table">
     <thead>
         <tr>
@@ -27,17 +21,20 @@ quotations and the @Model.Path inside it like : <source src="@Model.Path" type="
         </tr>
     </thead>
     <tbody>
+        @*this is amazing this iterates using a foreach and displays the atributes of the model*@
+@foreach (var item in Model)
+{
         <tr>
-            <th>@Model.Id</th>
-            <td>@Model.Artist</td>
-            <td>@Model.Genre</td>
-            <td>@Model.Name</td>
+            <th>@Html.DisplayFor(model => item.Id)</th>
+            <td>@Html.DisplayFor(model => item.Artist)</td>
+            <td>@Html.DisplayFor(model => item.Genre)</td>
+            <td>@Html.DisplayFor(model => item.Name)</td>
             <td>
                 <audio controls="controls">
-                    <source src="@Model.Path" type="audio/mpeg" pre-load="none" />
+                    <source src="@Html.DisplayFor(model => item.Path)" type="audio/mpeg" />
                 </audio>
             </td>
         </tr>
-        
+        }
     </tbody>
 </table>
