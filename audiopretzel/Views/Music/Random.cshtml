@@ -6,12 +6,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2> @Model.Artist      @Model.Genre        @Model.Name</h2>
+@*<h2> @Model.Artist      @Model.Genre        @Model.Name</h2>*@
 
 @*inside the audio tag the src must have 
 quotations and the @Model.Path inside it like : <source src="@Model.Path" type="audio/mpeg" />  *@
-<audio controls="controls">
+@*<audio controls="controls">
     <source src="@Model.Path" type="audio/mpeg" pre-load="none"/>
-</audio>
+</audio>*@
 
-
+<h2>Play music</h2>
+@*table for music*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Audiotaco</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Name</th>
+            <th>Play</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>@Model.Id</th>
+            <td>@Model.Artist</td>
+            <td>@Model.Genre</td>
+            <td>@Model.Name</td>
+            <td>
+                <audio controls="controls">
+                    <source src="@Model.Path" type="audio/mpeg" pre-load="none" />
+                </audio>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
