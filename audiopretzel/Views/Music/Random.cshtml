@@ -12,12 +12,15 @@
 
 
 @*this is the html output for the search bar taking searchstring param from controller in htmlhelper*@
+
 @using (Html.BeginForm())
 {
-    <p>
-        Search: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
+      
+           <p class="form-inline">
+             Search: @Html.TextBox("SearchString", null, new { @class = "form-control" })   
+             <input class="btn btn-info" type="submit" value="Search" />
+           </p>
+  
 }
 
 <table class="table">
