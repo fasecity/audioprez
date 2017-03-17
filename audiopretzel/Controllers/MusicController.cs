@@ -17,7 +17,7 @@ namespace audiopretzel.Controllers
         /// <returns></returns>
         /// Authorize is made so evreyone has to log in
         [Authorize]
-        public ActionResult Random()
+        public ActionResult Random(string sortOrder)
         {
             //creating an instance of the database class
             ApplicationDbContext _context = new ApplicationDbContext();
@@ -25,10 +25,35 @@ namespace audiopretzel.Controllers
             var music = _context.Musics.ToList();
             //the Path property inside Models.Path has to be exactly structured like : Path = "/Tunes/almost.mp3"
             //inorder to be passed into the view
-           
-            
-           //returning the list
-            return View(music);
+
+            //linq sort I made a viewbag called nameSort and made a string param called sortOrder
+            //created a linq expression with decending features that defaults to accending
+            //the thing is inorder for it to work it uses the sortMusic evreywhere since duh its the linq query
+            ViewBag.nameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.artistSort = String.IsNullOrEmpty(sortOrder) ? "artist_desc" : "";
+            ViewBag.genreSort = String.IsNullOrEmpty(sortOrder) ? "genre_desc" : "";
+            var sortMusic = from m in music select m;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    sortMusic = sortMusic.OrderByDescending(m => m.Name);
+                    break;
+
+                case "artist_desc":
+                    sortMusic = sortMusic.OrderByDescending(m => m.Artist);
+                    break;
+
+                case "genre_desc":
+                    sortMusic = sortMusic.OrderByDescending(m => m.Genre);
+                    break;
+
+
+                default:
+                    sortMusic = sortMusic.OrderBy(m => m.Name);
+                    break;
+            }
+            //returning the list
+            return View(sortMusic.ToList());
             
         }
         /// <summary>

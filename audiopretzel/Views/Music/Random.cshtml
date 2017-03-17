@@ -10,13 +10,23 @@
 
 <h2>Play music</h2>
 
+@*<form id="frmsearch" action="~/Music/Random" method="get">
+        <input id="q" name="q" value="" style="width:275px;" />
+        <input id="submit" name="submit" type="submit" style="font-weight:bold;" value="Search" />
+       
+    </form>*@
+
+
+
+
+
 <table class="table">
     <thead>
         <tr>
-            <th>Audiotaco</th>
-            <th>Artist</th>
-            <th>Genre</th>
-            <th>Name</th>
+            @*<th>Audiotaco</th>*@
+            <th>@Html.ActionLink("Artist", "Random", new { sortOrder = ViewBag.artistSort })</th>
+            <th>@Html.ActionLink("Genre", "Random", new { sortOrder = ViewBag.genreSort })</th>
+            <th>@Html.ActionLink("Name", "Random", new { sortOrder = ViewBag.nameSort })</th> @*action link element contains name controller and the viewbag*@
             <th>Play</th>
         </tr>
     </thead>
@@ -25,7 +35,7 @@
 @foreach (var item in Model)
 {
         <tr>
-            <th>@Html.DisplayFor(model => item.Id)</th>
+            @*<th>@Html.DisplayFor(model => item.Id)</th>*@
             <td>@Html.DisplayFor(model => item.Artist)</td>
             <td>@Html.DisplayFor(model => item.Genre)</td>
             <td>@Html.DisplayFor(model => item.Name)</td>
