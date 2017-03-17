@@ -8,18 +8,19 @@
 }
 
 
-<h2>Play music</h2>
+<h2 style="font-family:raleway;">Play music</h2>
 
 
 @*this is the html output for the search bar taking searchstring param from controller in htmlhelper*@
 
 @using (Html.BeginForm())
 {
-      
+      <div class="jumbotron">
            <p class="form-inline">
-             Search: @Html.TextBox("SearchString", null, new { @class = "form-control" })   
-             <input class="btn btn-info" type="submit" value="Search" />
+             Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })   
+             <input class="btn btn-info" type="submit" value="Search"/>
            </p>
+          </div>
   
 }
 
