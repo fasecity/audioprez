@@ -10,15 +10,15 @@
 
 <h2>Play music</h2>
 
-@*<form id="frmsearch" action="~/Music/Random" method="get">
-        <input id="q" name="q" value="" style="width:275px;" />
-        <input id="submit" name="submit" type="submit" style="font-weight:bold;" value="Search" />
-       
-    </form>*@
 
-
-
-
+@*this is the html output for the search bar taking searchstring param from controller in htmlhelper*@
+@using (Html.BeginForm())
+{
+    <p>
+        Search: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 
 <table class="table">
     <thead>

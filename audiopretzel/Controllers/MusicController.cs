@@ -17,7 +17,7 @@ namespace audiopretzel.Controllers
         /// <returns></returns>
         /// Authorize is made so evreyone has to log in
         [Authorize]
-        public ActionResult Random(string sortOrder)
+        public ActionResult Random(string sortOrder, string searchString)
         {
             //creating an instance of the database class
             ApplicationDbContext _context = new ApplicationDbContext();
@@ -33,6 +33,14 @@ namespace audiopretzel.Controllers
             ViewBag.artistSort = String.IsNullOrEmpty(sortOrder) ? "artist_desc" : "";
             ViewBag.genreSort = String.IsNullOrEmpty(sortOrder) ? "genre_desc" : "";
             var sortMusic = from m in music select m;
+            //This is literally the search funtion right here its using the searchString Param in controller
+            //and its checking if its null or empty then using the linq expression
+            //it searches where m is genre,artist and name thats it!!!
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sortMusic = sortMusic.Where(m => m.Genre.Contains(searchString)
+                                       || m.Artist.Contains(searchString) || m.Name.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "name_desc":
