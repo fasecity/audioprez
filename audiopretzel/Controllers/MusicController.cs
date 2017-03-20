@@ -9,7 +9,8 @@ namespace audiopretzel.Controllers
 {
     public class MusicController : Controller
     {
-        
+        ApplicationDbContext _context = new ApplicationDbContext();
+
         // GET: Music/Random
         /// <summary>
         /// this method is going to eventually display a music table to client it uses Random view
@@ -20,7 +21,7 @@ namespace audiopretzel.Controllers
         public ActionResult Random(string sortOrder, string searchString)
         {
             //creating an instance of the database class
-            ApplicationDbContext _context = new ApplicationDbContext();
+           // ApplicationDbContext _context = new ApplicationDbContext();
             //making the variable into a list
             var music = _context.Musics.ToList();
             //the Path property inside Models.Path has to be exactly structured like : Path = "/Tunes/almost.mp3"
@@ -70,14 +71,17 @@ namespace audiopretzel.Controllers
         /// <returns></returns>
         public ActionResult AddMusic()
         {
-           // ApplicationDbContext _context = new ApplicationDbContext();
+            // ApplicationDbContext _context = new ApplicationDbContext();
             //making the variable into a list
-            var music1 = new Music { Name = "test", Genre = "test" , Artist="test", Path= "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177633813&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false" };
-            ViewBag.name = music1.Name;
-            ViewBag.artist = music1.Artist;
-            ViewBag.genre = music1.Genre;
-            ViewBag.path = music1.Path;
-            return View(music1);
+            //var music1 = new Music { Name = "test", Genre = "test" , Artist="test", Path= "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177633813&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false" };
+            //ViewBag.name = music1.Name;
+            //ViewBag.artist = music1.Artist;
+            //ViewBag.genre = music1.Genre;
+            //ViewBag.path = music1.Path;
+           // ApplicationDbContext _context = new ApplicationDbContext();
+            var music = _context.Musics;
+
+            return View();
         }
     }
 }

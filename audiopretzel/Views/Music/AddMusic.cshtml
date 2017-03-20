@@ -4,12 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>crud area add music here</h2>
+<h2>Add new music here</h2>
 
-@Model.Name     @Model.Artist  
-
-
+@*@Model.Name     @Model.Artist*@
+<br />
+<br />
+<br />
+<p>Note: please only add music that is creative commons</p>
+<p>
+    Note:When adding the soundcloud path only paste the url in the source without qoatations ex src="---paste this---"</p>
+  <p style="color:#ff5555">DO NOT PASTE THE WHOLE EMBEDDED LINK WITH IFRAME </p>
 
 @*//testing embed path and it works*@
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="@Model.Path"></iframe>
+@*<iframe width="15%" height="166" scrolling="no" frameborder="no" src="@Model.Path"></iframe>*@
+
+<form>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Artist)
+        @Html.TextBoxFor(m => m.Artist, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Genre)
+        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+       @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+       @Html.LabelFor(m => m.Path)
+    @Html.TextBoxFor(m => m.Path, new { @class = "form-control" })
+    </div>
+    <button type="submit" value="save" class="btn btn-success">Save</button>
+</form>
