@@ -1,4 +1,4 @@
-﻿
+﻿@model audiopretzel.Models.Music
 @{
     ViewBag.Title = "AddMusic";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,10 @@
 
 <h2>crud area add music here</h2>
 
+@Model.Name     @Model.Artist  
+
+
+
+@*//testing embed path and it works*@
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="@Model.Path"></iframe>
