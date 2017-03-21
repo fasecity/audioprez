@@ -93,6 +93,10 @@ namespace audiopretzel.Controllers
         [HttpPost]
         public ActionResult AddMusic(Music model)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("AddMusic", "Music");
+            }
 
             try
             {
@@ -117,8 +121,8 @@ namespace audiopretzel.Controllers
             }
 
 
-           // return RedirectToAction("/Music/Random");
-             return View();
+            return RedirectToAction("Index", "Home");
+            //return View();
         }
     }
 }

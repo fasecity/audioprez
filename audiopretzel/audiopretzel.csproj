@@ -209,6 +209,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Patreon_logo.svg.png" />
     <Content Include="images\pexels-photo-30222.jpg" />
     <Content Include="images\pexels-photo-medium.jpg" />
     <Content Include="images\playButton.svg" />

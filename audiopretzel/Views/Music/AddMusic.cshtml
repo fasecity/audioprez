@@ -23,20 +23,28 @@
         <div class="form-group"> @*create lambda expression that binds models to properties*@
             @Html.LabelFor(model => model.Artist)
             @Html.TextBoxFor(model => model.Artist, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Artist)
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Genre)
             @Html.TextBoxFor(model => model.Genre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Genre)
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Name)
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Path)
             @Html.TextBoxFor(model => model.Path, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Path)
         </div>
         <button type="submit" value="save" class="btn btn-success">Save</button>
    
 }
-
+@*this is how you acticate jquery validate with validation msg for call this script 
+definition is in appstart bundle config*@
+@section Scripts{
+@Scripts.Render("~/bundles/jqueryval")
+}
