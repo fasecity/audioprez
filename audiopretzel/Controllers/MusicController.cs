@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace audiopretzel.Controllers
 {
@@ -21,7 +22,7 @@ namespace audiopretzel.Controllers
         public ActionResult Random(string sortOrder, string searchString)
         {
             //creating an instance of the database class
-           // ApplicationDbContext _context = new ApplicationDbContext();
+            // ApplicationDbContext _context = new ApplicationDbContext();
             //making the variable into a list
             var music = _context.Musics.ToList();
             //the Path property inside Models.Path has to be exactly structured like : Path = "/Tunes/almost.mp3"
@@ -63,12 +64,14 @@ namespace audiopretzel.Controllers
             }
             //returning the list
             return View(sortMusic.ToList());
-            
+
         }
         /// <summary>
         /// This Method is going to add music into database it uses AddMusic view for forms
         /// </summary>
         /// <returns></returns>
+        [Authorize]
+        [HttpGet]
         public ActionResult AddMusic()
         {
             // ApplicationDbContext _context = new ApplicationDbContext();
@@ -78,10 +81,44 @@ namespace audiopretzel.Controllers
             //ViewBag.artist = music1.Artist;
             //ViewBag.genre = music1.Genre;
             //ViewBag.path = music1.Path;
-           // ApplicationDbContext _context = new ApplicationDbContext();
-            var music = _context.Musics;
+            //ApplicationDbContext _context = new ApplicationDbContext();
+           // var music = _context.Musics;
 
+
+            
             return View();
+        }
+        //use authorize and http post gets the methof from form
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddMusic(Music model)
+        {
+
+            try
+            {
+                //intantiate database
+                ApplicationDbContext db = new ApplicationDbContext();
+                //instantiate Music class
+                Music musicAdder = new Music();
+                //add properties from music class and bind them to the view variables
+                musicAdder.Artist = model.Artist;
+                musicAdder.Genre = model.Genre;
+                musicAdder.Name = model.Name;
+                musicAdder.Path = model.Path;
+                //add object to database
+                db.Musics.Add(musicAdder);
+                //save changes
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+           // return RedirectToAction("/Music/Random");
+             return View();
         }
     }
 }

@@ -15,26 +15,28 @@
     Note:When adding the soundcloud path only paste the url in the source without qoatations ex src="---paste this---"</p>
   <p style="color:#ff5555">DO NOT PASTE THE WHOLE EMBEDDED LINK WITH IFRAME </p>
 
-@*//testing embed path and it works*@
 
-@*<iframe width="15%" height="166" scrolling="no" frameborder="no" src="@Model.Path"></iframe>*@
+@*allways use controller name first then viewpage folder eg Music*@
+@using (Html.BeginForm("AddMusic","Music",FormMethod.Post))
+{
+  
+        <div class="form-group"> @*create lambda expression that binds models to properties*@
+            @Html.LabelFor(model => model.Artist)
+            @Html.TextBoxFor(model => model.Artist, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genre)
+            @Html.TextBoxFor(model => model.Genre, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Path)
+            @Html.TextBoxFor(model => model.Path, new { @class = "form-control" })
+        </div>
+        <button type="submit" value="save" class="btn btn-success">Save</button>
+   
+}
 
-<form>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Artist)
-        @Html.TextBoxFor(m => m.Artist, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Genre)
-        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-       @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-       @Html.LabelFor(m => m.Path)
-    @Html.TextBoxFor(m => m.Path, new { @class = "form-control" })
-    </div>
-    <button type="submit" value="save" class="btn btn-success">Save</button>
-</form>
