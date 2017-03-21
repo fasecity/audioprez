@@ -91,6 +91,7 @@ namespace audiopretzel.Controllers
         //use authorize and http post gets the methof from form
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddMusic(Music model)
         {
             if (!ModelState.IsValid)

@@ -19,7 +19,7 @@
 @*allways use controller name first then viewpage folder eg Music*@
 @using (Html.BeginForm("AddMusic","Music",FormMethod.Post))
 {
-  
+  @Html.AntiForgeryToken()
         <div class="form-group"> @*create lambda expression that binds models to properties*@
             @Html.LabelFor(model => model.Artist)
             @Html.TextBoxFor(model => model.Artist, new { @class = "form-control" })
