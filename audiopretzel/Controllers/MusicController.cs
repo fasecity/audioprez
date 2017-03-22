@@ -70,7 +70,8 @@ namespace audiopretzel.Controllers
         /// This Method is going to add music into database it uses AddMusic view for forms
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        /// authorize user to this view
+        [Authorize(Users = "mo@test.com")]
         [HttpGet]
         public ActionResult AddMusic()
         {
@@ -89,7 +90,7 @@ namespace audiopretzel.Controllers
             return View();
         }
         //use authorize and http post gets the methof from form
-        [Authorize]
+        [Authorize(Users = "mo@test.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddMusic(Music model)
