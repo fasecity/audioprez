@@ -40,8 +40,8 @@ namespace audiopretzel.Controllers
             //it searches where m is genre,artist and name thats it!!!
             if (!String.IsNullOrEmpty(searchString))
             {
-                sortMusic = sortMusic.Where(m => m.Genre.Contains(searchString)
-                                       || m.Artist.Contains(searchString) || m.Name.Contains(searchString));
+                sortMusic = sortMusic.Where(m => m.Genre.Contains(searchString.ToLower())
+                                       || m.Artist.Contains(searchString.ToLower()) || m.Name.Contains(searchString.ToLower()));
             }
             switch (sortOrder)
             {

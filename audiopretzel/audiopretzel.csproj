@@ -211,10 +211,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\Patreon_logo.svg.png" />
-    <Content Include="images\pexels-photo-167092.jpeg" />
-    <Content Include="images\pexels-photo-30222.jpg" />
     <Content Include="images\pexels-photo-medium.jpg" />
-    <Content Include="images\playButton.svg" />
     <Content Include="images\taco-icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -230,9 +227,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Tunes\almost.mp3" />
-    <Content Include="Tunes\aminor1.mp3" />
-    <Content Include="Tunes\BASSFUNK2016.mp3" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
