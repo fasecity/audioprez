@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MusicController.cs" />
+    <Compile Include="Controllers\MusicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +211,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\Patreon_logo.svg.png" />
+    <Content Include="images\pexels-photo-167092.jpeg" />
     <Content Include="images\pexels-photo-30222.jpg" />
     <Content Include="images\pexels-photo-medium.jpg" />
     <Content Include="images\playButton.svg" />
@@ -267,6 +269,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Music\Random.cshtml" />
     <Content Include="Views\Music\AddMusic.cshtml" />
+    <Content Include="Views\Musics\Create.cshtml" />
+    <Content Include="Views\Musics\Delete.cshtml" />
+    <Content Include="Views\Musics\Details.cshtml" />
+    <Content Include="Views\Musics\Edit.cshtml" />
+    <Content Include="Views\Musics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

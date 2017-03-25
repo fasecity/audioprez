@@ -77,16 +77,16 @@ namespace audiopretzel.Controllers
         {
             // ApplicationDbContext _context = new ApplicationDbContext();
             //making the variable into a list
-            //var music1 = new Music { Name = "test", Genre = "test" , Artist="test", Path= "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177633813&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false" };
+            //var music1 = new Music { Name = "test", Genre = "test", Artist = "test", Path = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1776338" };
             //ViewBag.name = music1.Name;
             //ViewBag.artist = music1.Artist;
             //ViewBag.genre = music1.Genre;
             //ViewBag.path = music1.Path;
             //ApplicationDbContext _context = new ApplicationDbContext();
-           // var music = _context.Musics;
+            // var music = _context.Musics;
 
 
-            
+
             return View();
         }
         //use authorize and http post gets the methof from form

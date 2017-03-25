@@ -29,14 +29,15 @@ textarea {
     max-width: 400px;
 }
 #stage {
-    background-image: url('../images/pexels-photo-medium.jpg');
+    /*background-image: url('../images/pexels-photo-medium.jpg');*/
+    background-image: url('../images/pexels-photo-167092.jpeg');
     /*height:100% this uses the id namesd stage inside of body element inside of the index page*/;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     /*background-color: #999;*/
-    background-color:black;
+    background-color: black;
 }
 .navbar-inverse {
     background-color:rgba(1, 1, 1, 0.59);
