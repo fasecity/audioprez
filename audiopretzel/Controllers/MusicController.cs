@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using PagedList;//added nuget package for pagination
+using PagedList.Mvc;
 
 namespace audiopretzel.Controllers
 {
@@ -15,11 +17,12 @@ namespace audiopretzel.Controllers
         // GET: Music/Random
         /// <summary>
         /// this method is going to eventually display a music table to client it uses Random view
+        /// I also added the nullable int? page variable for pagination
         /// </summary>
         /// <returns></returns>
         /// Authorize is made so evreyone has to log in
         [Authorize]
-        public ActionResult Random(string sortOrder, string searchString)
+        public ActionResult Random(string sortOrder, string searchString,int? page)
         {
             //creating an instance of the database class
             // ApplicationDbContext _context = new ApplicationDbContext();
@@ -62,8 +65,9 @@ namespace audiopretzel.Controllers
                     sortMusic = sortMusic.OrderBy(m => m.Name);
                     break;
             }
-            //returning the list
-            return View(sortMusic.ToList());
+            //returning the list and then I added pagination method  that takes a nullable page variable that goes 
+            //from 1-5 elements per page
+            return View(sortMusic.ToList().ToPagedList(page ?? 1, 4));
 
         }
         /// <summary>

@@ -1,10 +1,12 @@
-﻿@model IEnumerable<audiopretzel.Models.Music>
-@*model mus be made into IEnurable to display in list*@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<audiopretzel.Models.Music>
+@*model mus be made into IEnurable to display in list but i needed pagination so i used the IpagedList interface instead*@
 
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
 
@@ -12,22 +14,29 @@
 
 
 @*this is the html output for the search bar taking searchstring param from controller in htmlhelper*@
-<p3 style="color:#43e98d">Note: If souncloud player brings up something annoying page press X on player.</p3>
 @using (Html.BeginForm())
-{       
-      <div class="jumbotron">
-           <p class="form-inline">
-             Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })   
-             <input class="btn btn-info" type="submit" value="Search"/>
-           </p>
+{
+    <div class="jumbotron">
+        <p class="form-inline">
+            Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })
+            <input class="btn btn-info" type="submit" value="Search" />
+        </p>
 
-          <p style="font-family:lato;font-size:13px;">Current artists: faseciy</p>
-          <p style="font-family:lato;font-size:13px;">Current genres: hiphop, electronic, rock, funk, alternative</p>
-          
-          </div>
-  
+        <p style="font-family:lato;font-size:13px;">Current artists: faseciy</p>
+        <p style="font-family:lato;font-size:13px;">Current genres: hiphop, electronic, rock, funk, alternative</p>
+
+    </div>
+    <p3 style="color:#43e98d">
+        Note: If soundcloud player brings up something annoying page press X button on player.
+    </p3>
+    <p4>To download press down arrow in music player.</p4>
+
 }
-
+@*this is the pagination html helper that takes the action and target*@
+@*@Html.PagedListPager(Model, page => Url.Action("Random", new { page,
+    SearchBy =Request.QueryString["SearchBy"],Search= Request.QueryString["Search"] }),
+    new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })*@
+@Html.PagedListPager(Model, page => Url.Action("Random", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
 <table class="table">
     <thead>
         <tr>
@@ -41,26 +50,28 @@
     </thead>
     <tbody>
         @*this is amazing this iterates using a foreach and displays the atributes of the model*@
-@foreach (var item in Model)
-{
-        <tr>
-            @*<th>@Html.DisplayFor(model => item.Id)</th>*@
-            <td>@Html.DisplayFor(model => item.Artist)</td>
-            <td>@Html.DisplayFor(model => item.Genre)</td>
-            <td>@Html.DisplayFor(model => item.Name)</td>
-            @*<td>
-                <audio controls="controls">
-                    <source src="@Html.DisplayFor(model => item.Path)" type="audio/mpeg" />
-                </audio>
-            </td>*@
-            <td>
-                <iframe width="70%" height="166" scrolling="no" frameborder="no" src="@Html.DisplayFor(model => item.Path)"></iframe>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<th>@Html.DisplayFor(model => item.Id)</th>*@
+                <td>@Html.DisplayFor(model => item.Artist)</td>
+                <td>@Html.DisplayFor(model => item.Genre)</td>
+                <td>@Html.DisplayFor(model => item.Name)</td>
+                @*<td>
+                        <audio controls="controls">
+                            <source src="@Html.DisplayFor(model => item.Path)" type="audio/mpeg" />
+                        </audio>
+                    </td>*@
+                <td>
+                    <iframe width="70%" height="166" scrolling="no" frameborder="no" src="@Html.DisplayFor(model => item.Path)"></iframe>
 
-            </td>
-            <td>
-                <img src="~/images/Patreon_logo.svg.png"width="75" height="75" />
-            </td>
-        </tr>
+                </td>
+                <td>
+                    <img src="~/images/Patreon_logo.svg.png" width="75" height="75" />
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+@*this is the pagination html helper that takes the action and target*@
+@Html.PagedListPager(Model, page => Url.Action("Random", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
