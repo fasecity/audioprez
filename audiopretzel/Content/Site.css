@@ -3,7 +3,10 @@
     padding-bottom: 20px;
     color:white;
     /*background-color: #030101;*/
-    background-color: #030a0c;
+   background: #360033;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
@@ -101,7 +104,8 @@ a {
 .btn-info {
     color: #ffffff;
     background-color: #185d70;
-    border-color: #000000;
+    border-color: #2bb77a;
+     border-radius: 13px;
 }
 .jumbotron {
     padding: 30px;
@@ -110,7 +114,10 @@ a {
     font-weight: 200;
     line-height: 2.1428571435;
     color: inherit;
-    background-color: rgb(16, 55, 52);
+    /*background-color: rgb(16, 55, 52);*/
+    background-color: rgba(16, 55, 52, 0.4);
+   
+
 }
 .form-control:focus {
   border-color: #ff00ce;
@@ -125,4 +132,21 @@ a {
     text-decoration: none;
     background-color: rgb(13, 26, 43);
     border: 1px solid #52b480;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    /*background-color: rgba(7, 226, 255, 0.48);*/
+    background-color: rgba(7, 250, 223, 0.18);
+
+
+    border-radius: 30px;
 }
